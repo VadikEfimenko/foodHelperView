@@ -5,6 +5,7 @@ const tg = window.Telegram.WebApp;
 
 function App() {
     useEffect(() => {
+        console.log('kek');
         tg.ready();
     });
 
