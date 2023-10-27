@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/food-helper-view/static/css/main.d6abb147.css",
-    "main.js": "/food-helper-view/static/js/main.a43cfa70.js",
+    "main.js": "/food-helper-view/static/js/main.f2b916f2.js",
     "static/media/success.png": "/food-helper-view/static/media/success.19ab134ae9d36ddd02cd.png",
     "static/media/Circe.otf": "/food-helper-view/static/media/Circe.f3755ad4f12fefc584d0.otf",
     "index.html": "/food-helper-view/index.html",
     "main.d6abb147.css.map": "/food-helper-view/static/css/main.d6abb147.css.map",
-    "main.a43cfa70.js.map": "/food-helper-view/static/js/main.a43cfa70.js.map"
+    "main.f2b916f2.js.map": "/food-helper-view/static/js/main.f2b916f2.js.map"
   },
   "entrypoints": [
     "static/css/main.d6abb147.css",
-    "static/js/main.a43cfa70.js"
+    "static/js/main.f2b916f2.js"
   ]
 }
