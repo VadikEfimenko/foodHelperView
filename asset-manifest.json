@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/food-helper-view/static/css/main.aba65720.css",
-    "main.js": "/food-helper-view/static/js/main.afc9ee15.js",
+    "main.css": "/food-helper-view/static/css/main.ce2d19e8.css",
+    "main.js": "/food-helper-view/static/js/main.1c13b4b1.js",
     "static/media/success.png": "/food-helper-view/static/media/success.19ab134ae9d36ddd02cd.png",
     "static/media/Circe.otf": "/food-helper-view/static/media/Circe.f3755ad4f12fefc584d0.otf",
     "index.html": "/food-helper-view/index.html",
-    "main.aba65720.css.map": "/food-helper-view/static/css/main.aba65720.css.map",
-    "main.afc9ee15.js.map": "/food-helper-view/static/js/main.afc9ee15.js.map"
+    "main.ce2d19e8.css.map": "/food-helper-view/static/css/main.ce2d19e8.css.map",
+    "main.1c13b4b1.js.map": "/food-helper-view/static/js/main.1c13b4b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.aba65720.css",
-    "static/js/main.afc9ee15.js"
+    "static/css/main.ce2d19e8.css",
+    "static/js/main.1c13b4b1.js"
   ]
 }
