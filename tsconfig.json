@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es5",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["types/*"]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}

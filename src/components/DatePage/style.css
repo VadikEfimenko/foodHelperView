@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "Circle";
+    src: url("../../fonts/Circe.otf");
+    /* Дополнительные свойства шрифта, если необходимо */
+}
+
+.dateWrapper {
+    margin-top: 2em;
+}
+
+.buttonWrapper {
+    display: inline-flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.dateButton {
+    background: transparent;
+    width: 52px;
+    height: 52px;
+    font-family: "Circe", system-ui;
+    letter-spacing: 1px;
+    font-size: 18px;
+    border-radius: 50%;
+    color: #4a4a4a;
+    border: 2px solid rgba(74,74,74,0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dateSelected {
+    border: 2px solid #c6007f;
+}
+
+.caption {
+    margin-top: 8px;
+    color: #4a4a4a;
+}
+
+.title {
+    font-family: "Circe", sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: #4a4a4a;
+}
+
+.subtitle {
+    margin-top: 18px;
+    font-size: 18px;
+    color: #4a4a4a;
+}

@@ -1,0 +1,42 @@
+.foodWrapper {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recordInput {
+    margin-top: 18px;
+    font-family: "Circe", sans-serif;
+    font-size: 16px;
+    color: #4a4a4a;
+    width: 92%;
+    height: 120px;
+    padding: 8px 24px;
+    border: solid 1px #d2d2d2;
+    border-radius: 25px;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    background-color: #fff;
+    outline: none;
+}
+
+.foodTitle {
+    font-size: 24px;
+}
+
+.recordInput::placeholder {
+    color: rgba(74,74,74,0.2);
+    font-size: 16px;
+}
+
+.recordInput:focus {
+    border: solid 1px #ffade2;
+}
+
+.recordInput:focus::placeholder {
+    transform: scale(1);
+    transform-origin: top left;
+}

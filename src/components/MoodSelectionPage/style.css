@@ -1,0 +1,40 @@
+.emoji {
+    font-size: 50px;
+    border-radius: 50%;
+    border: 12px solid transparent;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    transition: transform .3s cubic-bezier(.4,0,.2,1),border .3s cubic-bezier(.4,0,.2,1);
+}
+
+.emoji:focus {
+    transform: scale(1);
+}
+
+.moodContainer {
+    display: inline-flex;
+    margin-top: 18px;
+}
+
+.score {
+    font-size: 25px;
+}
+
+.moodSelected {
+    background: #FFE3E6;
+}
+
+.caption {
+    margin-top: 8px;
+    color: #4a4a4a;
+}
+
+.moodTitle {
+    margin-top: 24px;
+    font-size: 24px;
+}
+
+.moodWrapper {
+    margin-top: 2em;
+}

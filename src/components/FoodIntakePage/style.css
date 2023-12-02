@@ -1,0 +1,37 @@
+.foodIntake {
+    background: transparent;
+    font-family: "Circe", system-ui;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #4a4a4a;
+    border: 2px solid rgba(74,74,74,0.2);
+    border-radius: 100px;
+    padding: 8px 23px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.foodIntakeWrapper {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.caption {
+    margin-top: 8px;
+    color: #4a4a4a;
+}
+
+.foodIntakeSelected {
+    border: 2px solid #c6007f;
+}
+
+.foodIntakeTitle {
+    font-size: 24px;
+    margin-top: 24px;
+}
+
+.wrapper {
+    margin-top: 2em;
+}
