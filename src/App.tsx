@@ -198,9 +198,9 @@ function App() {
                 }
             })()}
 
-            {step === ScreenSteps.EstimateSatiety && (
-                <button onClick={onSendData}>Отправить</button>
-            )}
+            {/*{step === ScreenSteps.EstimateSatiety && (*/}
+            {/*    <button onClick={onSendData}>Отправить</button>*/}
+            {/*)}*/}
 
             {(step !== ScreenSteps.EstimateSatiety && step !== ScreenSteps.Success) && (
                 <button
