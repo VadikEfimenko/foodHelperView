@@ -1,0 +1,93 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    background: #FFFFFF;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding: 24px;
+    border-radius: 8px;
+    row-gap: 18px;
+    margin-bottom: 86px;
+}
+
+.loginForm .title {
+    margin: auto;
+    padding-bottom: 1rem;
+}
+
+.loginFormWrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    color: #fff;
+    width: 194px;
+    padding: 15px 0 13px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all .15s ease;
+    background-color: #c5017e;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #de008e;
+    box-shadow: 0 5px 9px 0 #ebb2d7;
+    transform: translateY(-4px);
+}
+
+.loginInput {
+    height: 40px;
+    padding: 0 17px;
+    border: solid 1px #d2d2d2;
+    border-radius: 25px;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    background-color: #fff;
+    outline: none;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.59;
+    color: #c7c7c7;
+    width: 100%;
+}
+
+.loginInput::placeholder {
+    color: #c7c7c7;
+}
+
+input[name="secretKey"] {
+    width: 194px;
+}
+
+.loginInput:focus {
+    border: solid 1px #ffaee1;
+}
+
+.button:disabled {
+    background: #ffaee1;
+}
+
+.auth {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #0B1943;
+}
+
+.authLink {
+    color: #c6007f;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.authLink:hover {
+    text-decoration: underline;
+}

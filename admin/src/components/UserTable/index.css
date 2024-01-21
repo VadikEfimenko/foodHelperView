@@ -1,0 +1,35 @@
+.userTableRow {
+    display: flex;
+    padding: 18px 0;
+    font-weight: 300;
+}
+
+.userTableTitle {
+    justify-content: space-between;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+}
+
+.userTableHeader {
+    display: flex;
+    padding: 18px 0;
+    font-weight: 300;
+    color: #0B1943;
+    border-bottom: 1px solid #0B1943;
+}
+
+.userTableCell {
+    flex: 1;
+}
+
+.userTableBigCell {
+    flex: 2;
+}
+
+.dateBadge {
+    padding: 9px 15px;
+    color: #c5017e;
+    background: #FFE3E6;
+    border-radius: 56px;
+}

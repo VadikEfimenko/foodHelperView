@@ -9,7 +9,6 @@ export default defineConfig({
         react(),
         viteTsconfigPaths(),
         svgr({
-            include: '**/*.svg?react',
         }),
     ],
 });

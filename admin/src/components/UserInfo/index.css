@@ -1,0 +1,49 @@
+.userTable {
+    margin-top: 24px;
+    background: white;
+    padding: 16px;
+}
+
+.usersWrapper {
+    display: flex;
+    column-gap: 12px;
+    margin-top: 16px;
+    width: 1158px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toggle {
+    color: #c5017e;
+    display: flex;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tablesWrapper {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+}
+
+.userPage {
+    width: 100%;
+}
+
+.userPageTitle {
+    margin-top: 16px;
+    font-size: 24px;
+    color: #0B1943;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.noData {
+    margin-top: 24px;
+}
+
+.backArrow {
+    margin-right: 16px;
+    cursor: pointer;
+}
