@@ -40,7 +40,7 @@ formScene.on(message('text'), async (ctx) => {
             const doctor = await Doctor.find({});
             console.log('doctor', doctor);
             // @ts-ignore
-            await User.findOneAndUpdate({ _id: ctx?.from?.id }, {...profile, doctor: doctor[0]._id }, {
+            await User.findOneAndUpdate({ _id: ctx?.from?.id }, {...profile, doctor: doctor[0]?._id || null }, {
                 new: true
             })
 

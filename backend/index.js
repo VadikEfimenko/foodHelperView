@@ -9,7 +9,7 @@ const mealTimesModel = require('./models/meal-time-model');
 const pid = process.pid;
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3002;
 let server;
 
 app.use(express.json());
@@ -22,6 +22,7 @@ app.use('/api', router);
 app.use(errorMiddleware);
 
 app.post('/recordMealTime', async (req, res) => {
+    console.log('recordMealTime', req);
     try {
         const mealTime = new mealTimesModel(req.body);
         const result = await mealTime.save();
@@ -38,9 +39,12 @@ app.post('/recordMealTime', async (req, res) => {
 
 const start = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/foodHelper', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+        await mongoose.connect('mongodb://localhost:27017', {
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true,
+            dbName: 'foodHelper',
+            user: 'root',
+            pass: 'example',
         });
 
         server = app.listen(PORT, () => {
@@ -53,18 +57,26 @@ const start = async () => {
 
 process.on('SIGTERM', () => {
     console.log('SIGTERM signal received.');
-    server.close(() => {
-        console.log(`Перекрыты оставшиеся соединения. Процесс: ${pid}`);
-        process.exit();
-    });
+    if (server) {
+        server.close(() => {
+            console.log(`Перекрыты оставшиеся соединения. Процесс: ${pid}`);
+            process.exit();
+        });
+    } else {
+        console.log('Сервер не был активен!');
+    }
 });
 
 process.on('SIGINT', () => {
     console.log('SIGINT signal received.');
-    server.close(() => {
-        console.log(`Перекрыты оставшиеся соединения. Процесс: ${pid}`);
-        process.exit();
-    });
+    if (server) {
+        server.close(() => {
+            console.log(`Перекрыты оставшиеся соединения. Процесс: ${pid}`);
+            process.exit();
+        });
+    } else {
+        console.log('Сервер не был активен!');
+    }
 });
 
 start();

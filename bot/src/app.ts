@@ -33,9 +33,12 @@ class Bot {
 
 const config = new ConfigService();
 
-mongoose.connect('mongodb://127.0.0.1:27017/foodHelper', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+mongoose.connect('mongodb://localhost:27017', {
+        // useNewUrlParser: true,
+        // useUnifiedTopology: true,
+        dbName: 'foodHelper',
+        user: 'root',
+        pass: 'example',
     } as ConnectOptions,
 ).then((data) => {
     console.log('Бот подключен к БД!');
