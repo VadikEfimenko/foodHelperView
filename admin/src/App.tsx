@@ -1,0 +1,28 @@
+import './App.css'
+import { Header } from './components/Header/Header';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Main } from './components/Main/Main';
+import { UserInfo } from './components/UserInfo/UserInfo';
+import { Login } from "./components/Login/Login";
+import { AuthProvider } from './context/AuthProvider';
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
+
+function App() {
+    return (
+        <BrowserRouter>
+            <AuthProvider>
+                <Header />
+                <Routes>
+                    <Route path="/login" element={<Login /> }/>
+
+                    <Route element={<PrivateRoute />}>
+                        <Route path="/" element={<Main /> }/>
+                        <Route path="/user/:id" element={<UserInfo /> }/>
+                    </Route>
+                </Routes>
+            </AuthProvider>
+        </BrowserRouter>
+    )
+}
+
+export default App

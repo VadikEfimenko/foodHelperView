@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Circle";
+  src: url("./fonts/Circe.otf");
+  /* Дополнительные свойства шрифта, если необходимо */
+}
+
+:root {
+  font-family: "Circe", sans-serif;
+  background: #fee3e3;
+}
+
+* {
+  margin: 0;
+}
+
