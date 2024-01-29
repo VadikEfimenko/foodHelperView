@@ -80,7 +80,7 @@ function App() {
         let result = await fetch(
             'http://localhost:3002/recordMealTime', {
                 method: "POST",
-                body: JSON.stringify({ userId: user?.id ?? '357017314', ...foodLog }),
+                body: JSON.stringify({ userId: user?.id ?? '114856211', ...foodLog }),
                 headers: {
                     'Content-Type': 'application/json'
                 }

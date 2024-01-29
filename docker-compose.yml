@@ -1,0 +1,52 @@
+version: '3.3'
+
+services:
+  # interactivemap:
+  #   build: ./
+  #   container_name: interactivemap
+  #   hostname: interactivemap
+  #   ports:
+  #   - 80:80
+  #   - 9229:9229
+  #   volumes:
+  #   - './:/var/www'
+  #   stdin_open: true
+  #   tty: true
+  #   depends_on:
+  #   - mongo
+  #   networks:
+  #   - food-helper-view-network
+  #   environment:
+  #     PM2_CONFIG: pm2.dev.config.js
+
+  mongo:
+    image: mongo
+    container_name: food-helper-view-mongo
+    hostname: mongo
+    ports:
+    - 27017:27017
+    networks:
+    - food-helper-view-network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    container_name: food-helper-view-mongo-express
+    hostname: mongo-express
+    ports:
+    - 8089:8089
+    - 8881:8081
+    networks:
+    - food-helper-view-network
+    depends_on:
+    - mongo
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+networks:
+  food-helper-view-network:

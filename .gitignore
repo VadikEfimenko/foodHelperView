@@ -12,6 +12,12 @@
 
 # production
 /build
+/dist
+/admin/dist/
+/admin/node_modules/
+/bot/dist/
+/bot/node_modules/
+/sessions.json
 
 # misc
 .DS_Store
