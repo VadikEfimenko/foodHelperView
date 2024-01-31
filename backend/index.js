@@ -21,7 +21,7 @@ app.use(cors({
 app.use('/api', router);
 app.use(errorMiddleware);
 
-app.post('/recordMealTime', async (req, res) => {
+app.post('/api/recordMealTime', async (req, res) => {
     console.log('recordMealTime', req);
     try {
         const mealTime = new mealTimesModel(req.body);
@@ -43,8 +43,8 @@ const start = async () => {
             // useNewUrlParser: true,
             // useUnifiedTopology: true,
             dbName: 'foodHelper',
-            user: 'root',
-            pass: 'example',
+            // user: 'root',
+            // pass: 'example',
         });
 
         server = app.listen(PORT, () => {

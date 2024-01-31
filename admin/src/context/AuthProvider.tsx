@@ -26,9 +26,10 @@ const AuthContext = createContext<AuthContextType>({
 export const AuthProvider = ({ children }: PropsWithChildren) => {
     const [isAuthenticated, setAuth] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
+    const [checkAuthStatus, setCheckAuth] = useState<boolean>(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/admin';
 
     const checkAuth = useCallback(async () => {
         try {
@@ -37,6 +38,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
             localStorage.setItem('token', response.data.accessToken);
             setAuth(true);
             setLoading(false);
+            setCheckAuth(true);
             navigate(from, { replace: true });
         } catch (e) {
             setLoading(false);
@@ -50,7 +52,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
             localStorage.removeItem('token');
             setAuth(false);
-            navigate('/login', { replace: true });
+            navigate('/admin/login', { replace: true });
         } catch (e) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -87,8 +89,10 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     }, []);
 
     useEffect(() => {
-        checkAuth();
-    }, []);
+        if (!checkAuthStatus) {
+            checkAuth();
+        }
+    }, [checkAuthStatus]);
 
     return (
         <AuthContext.Provider value={{ isAuthenticated, setAuth, loading, onLogout, onLogin, onRegistration }}>

@@ -14,10 +14,10 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/admin/login" element={<Login /> }/>
+                    <Route path="/admin/" element={<Main /> }/>
+                    <Route path="/admin/user/:id" element={<UserInfo /> }/>
 
                     <Route element={<PrivateRoute />}>
-                        <Route path="/admin/" element={<Main /> }/>
-                        <Route path="/admin/user/:id" element={<UserInfo /> }/>
                     </Route>
                 </Routes>
             </AuthProvider>

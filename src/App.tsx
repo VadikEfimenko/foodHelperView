@@ -78,7 +78,7 @@ function App() {
 
     const onSendData = useCallback(async () => {
         let result = await fetch(
-            'http://localhost:3002/recordMealTime', {
+            'http://localhost:3002/api/recordMealTime', {
                 method: "POST",
                 body: JSON.stringify({ userId: user?.id ?? '114856211', ...foodLog }),
                 headers: {
@@ -198,9 +198,9 @@ function App() {
                 }
             })()}
 
-            {step === ScreenSteps.EstimateSatiety && (
-                <button onClick={onSendData}>Отправить</button>
-            )}
+            {/*{step === ScreenSteps.EstimateSatiety && (*/}
+            {/*    <button onClick={onSendData}>Отправить</button>*/}
+            {/*)}*/}
 
             {(step !== ScreenSteps.EstimateSatiety && step !== ScreenSteps.Success) && (
                 <button
