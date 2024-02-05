@@ -21,30 +21,14 @@ app.use(cors({
 app.use('/api', router);
 app.use(errorMiddleware);
 
-app.post('/api/recordMealTime', async (req, res) => {
-    console.log('recordMealTime', req);
-    try {
-        const mealTime = new mealTimesModel(req.body);
-        const result = await mealTime.save();
-
-        if (result) {
-            res.json({
-                status: 'OK',
-            });
-        }
-    } catch (e) {
-        console.log('Recorded Error', e);
-    }
-});
-
 const start = async () => {
     try {
         await mongoose.connect('mongodb://localhost:27017', {
             // useNewUrlParser: true,
             // useUnifiedTopology: true,
             dbName: 'foodHelper',
-            // user: 'root',
-            // pass: 'example',
+            user: 'root',
+            pass: 'example',
         });
 
         server = app.listen(PORT, () => {

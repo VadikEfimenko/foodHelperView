@@ -7,8 +7,6 @@ class DoctorController {
         try {
             const errors = validationResult(req);
 
-            console.log('errors', errors);
-
             if (!errors.isEmpty()) {
                 return next(ApiError('Ошибка при валидации', errors.array()));
             }
