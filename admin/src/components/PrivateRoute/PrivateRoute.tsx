@@ -1,5 +1,5 @@
 import { useAuthContext } from '../../context/AuthProvider';
-import { useLocation, Navigate } from 'react-router-dom';
+import { useLocation, Navigate, Outlet } from 'react-router-dom';
 import './style.css'
 
 export const PrivateRoute = () => {
@@ -15,6 +15,6 @@ export const PrivateRoute = () => {
     }
 
     return (
-        <Navigate to={isAuthenticated ? '/admin' : '/admin/login'} state={{ from: location }} replace />
+        isAuthenticated ? <Outlet /> : <Navigate to="/login" state={{ from: location }} replace />
     );
 }

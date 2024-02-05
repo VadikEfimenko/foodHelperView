@@ -26,7 +26,7 @@ export const Main = () => {
     }, [fetchUsers]);
 
     const onUserClick = useCallback((id: string) => {
-        navigate(`/admin/user/${id}`);
+        navigate(`/user/${id}`);
     }, []);
 
     return (

@@ -13,11 +13,11 @@ function App() {
             <AuthProvider>
                 <Header />
                 <Routes>
-                    <Route path="/admin/login" element={<Login /> }/>
-                    <Route path="/admin/" element={<Main /> }/>
-                    <Route path="/admin/user/:id" element={<UserInfo /> }/>
+                    <Route path="/login" element={<Login /> }/>
 
                     <Route element={<PrivateRoute />}>
+                        <Route path="/" element={<Main /> }/>
+                        <Route path="/user/:id" element={<UserInfo /> }/>
                     </Route>
                 </Routes>
             </AuthProvider>

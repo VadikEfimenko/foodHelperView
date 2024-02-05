@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     const [checkAuthStatus, setCheckAuth] = useState<boolean>(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/admin';
+    const from = location.state?.from?.pathname || '/';
 
     const checkAuth = useCallback(async () => {
         try {
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
             localStorage.removeItem('token');
             setAuth(false);
-            navigate('/admin/login', { replace: true });
+            navigate('/login', { replace: true });
         } catch (e) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore

@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
     const navigate = useNavigate();
 
     const onLogoClick = useCallback(() => {
-        navigate(`/admin`);
+        navigate(`/`);
     }, []);
 
     return (
