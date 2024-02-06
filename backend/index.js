@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: process.env.CLIENT_URL,
+    origin: ['https://efimenko.tech', 'https://doctor.efimenko.tech'],
 }));
 app.use('/api', router);
 app.use(errorMiddleware);
