@@ -8,7 +8,6 @@ const greeterScene = new Scenes.BaseScene<Scenes.SceneContext>("greetersScene");
 
 greeterScene.enter(async (ctx) => {
     const uid = String(ctx?.from?.id);
-
     const user = await User.findById(uid);
 
     if (user) {

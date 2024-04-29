@@ -21,7 +21,7 @@ let currentFormStep: FormSteps;
 let profile: IProfile = {};
 
 formScene.enter((ctx) => {
-    ctx.reply('Хотела бы с вами познакомиться поближе, напишите мне, пожалуйста, ваше имя');
+    ctx.reply('Хотела бы с вами познакомиться поближе, напишите мне, пожалуйста, ваши имя и фамилию');
     currentFormStep = FormSteps.Name;
 });
 
@@ -38,7 +38,6 @@ formScene.on(message('text'), async (ctx) => {
         case FormSteps.Email:
             profile.email = text;
             const doctor = await Doctor.find({});
-            console.log('doctor', doctor);
             // @ts-ignore
             await User.findOneAndUpdate({ _id: ctx?.from?.id }, {...profile, doctor: doctor[0]?._id || null }, {
                 new: true
