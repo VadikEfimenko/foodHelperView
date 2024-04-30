@@ -7,7 +7,7 @@ export function FoodIntakePage({ setFoodIntake, value }) {
         { text: 'Завтрак', type: 'breakfast'},
         { text: 'Второй завтрак', type: 'second_breakfast'},
         { text: 'Обед', type: 'launch'},
-        { text: 'Полдник', type: 'snack'},
+        { text: 'Перекус', type: 'snack'},
         { text: 'Ужин', type: 'dinner'},
     ];
 

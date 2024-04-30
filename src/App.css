@@ -45,4 +45,14 @@ body {
   margin-top: 24px;
 }
 
+.estimateDescription {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  padding: 18px;
+  border: 1px solid #c6007f;
+  border-radius: 40px;
+}
+
 

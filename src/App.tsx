@@ -35,7 +35,7 @@ function App() {
         hungryScale: null,
         satietyScale: null,
     });
-    const { tg, mainButton, onClose, user } = useTelegram();
+    const { tg, mainButton, onClose, user, queryId } = useTelegram();
     const [step, setStep] = useState(ScreenSteps.Date);
     const procedure = [
         ScreenSteps.Date,
@@ -45,6 +45,10 @@ function App() {
         ScreenSteps.EstimateSatiety,
         ScreenSteps.Success
     ];
+    const moodDescription = {
+        [ScreenSteps.EstimateHungry]: ['Ни голоден, ни сыт', 'Слегка голоден', 'Голоден', 'Очень голоден', 'Умираю от голода'],
+        [ScreenSteps.EstimateSatiety]: ['Ни голоден, ни сыт', 'не наелся', 'наелся. чувствую себя комфортно', 'слегка переел', 'объелся'],
+    };
 
     useEffect(() => {
         setFoodLog({
@@ -77,10 +81,14 @@ function App() {
     }, [step]);
 
     const onSendData = useCallback(async () => {
+        const userBody = JSON.stringify({ userId: user?.id ?? '114856211', queryId, ...foodLog });
+
+        console.log('LOGS queryId: ', queryId);
+
         let result = await fetch(
             'https://efimenko.tech/api/recordMealTime', {
                 method: "POST",
-                body: JSON.stringify({ userId: user?.id ?? '114856211', ...foodLog }),
+                body: userBody,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -210,6 +218,15 @@ function App() {
                     Далее
                 </button>
             )}
+
+            {/*{(step === ScreenSteps.EstimateSatiety || step === ScreenSteps.EstimateHungry) && (*/}
+            {/*    <div className='estimateDescription'>*/}
+            {/*        Расшифровка:*/}
+            {/*        {moodDescription[step].map((item, index) => (*/}
+            {/*            <div>{index + 1} - {item}</div>*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+            {/*)}*/}
         </div>
     )
 }

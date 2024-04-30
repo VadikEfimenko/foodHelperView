@@ -6,16 +6,16 @@ import { ScreenSteps } from "../../App";
 
 export function MoodSelectionPage({ title, onClick, value, type, caption }) {
     const mood = [{
-        emojiHungry: '😊',
-        emojiSatiety: '😋',
+        emojiHungry: '😐',
+        emojiSatiety: '😐',
         score: 1,
     }, {
-        emojiHungry: '🙂',
-        emojiSatiety: '😕',
+        emojiHungry: '😕',
+        emojiSatiety: '😔',
         score: 2,
     }, {
         emojiHungry: '🙁',
-        emojiSatiety: '🙁',
+        emojiSatiety: '😋',
         score: 3,
     }, {
         emojiHungry: '😰',
@@ -23,7 +23,7 @@ export function MoodSelectionPage({ title, onClick, value, type, caption }) {
         score: 4,
     }, {
         emojiHungry: '😵',
-        emojiSatiety: '🤢',
+        emojiSatiety: '🥴',
         score: 5,
     }];
 
