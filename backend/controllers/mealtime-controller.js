@@ -23,6 +23,7 @@ class MealtimeController {
                 }
             });
         } catch (e) {
+            console.log('Notify error', e);
             next(e);
         }
     }
