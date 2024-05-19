@@ -10,6 +10,8 @@ import foodScene from './controllers/food';
 import { TypesScenes } from './consts';
 import express from 'express';
 import cors from 'cors';
+import { formatDateFromTimestamp } from '../../src/utils/date';
+import { hungry, satiety } from '../../src/utils/mood';
 
 const app = express();
 
@@ -62,7 +64,7 @@ mongoose.connection.on('open', () => {
     bot.init();
 
     app.post('/bot/sendNotify', async (req, res) => {
-        const { queryId, message } = req.body;
+        const { queryId, text, date, foodIntake, hungryScale, satietyScale } = req.body;
 
         try {
             await bot.bot.telegram.answerWebAppQuery(queryId, {
@@ -70,7 +72,11 @@ mongoose.connection.on('open', () => {
                 id: queryId,
                 title: 'Успешно записано!',
                 input_message_content: {
-                    message_text: 'А вот что было записано: \n\n' + message,
+                    message_text: `${date ? formatDateFromTimestamp(date) : 'Дата не указана'} \n\n` +
+                        `${foodIntake ? foodIntake : 'Приём пищи'}: \n` +
+                        `"${text}" \n\n` +
+                        `Оценка голода: ${hungryScale ? hungry[hungryScale - 1] : '-'}\n` +
+                        `Оценка насыщения: ${satietyScale ? satiety[satietyScale - 1] : '-'}`,
                 }
             });
 

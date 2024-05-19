@@ -14,10 +14,7 @@ class MealtimeController {
         try {
             await fetch('https://efimenko.tech/bot/sendNotify', {
                 method: 'POST',
-                body: JSON.stringify({
-                    queryId: req.body.queryId,
-                    message: req.body.text,
-                }),
+                body: JSON.stringify(req.body),
                 headers: {
                     'Content-Type': 'application/json'
                 }
