@@ -10,8 +10,8 @@ import foodScene from './controllers/food';
 import { TypesScenes } from './consts';
 import express from 'express';
 import cors from 'cors';
-import { formatDateFromTimestamp } from '../../src/utils/date';
-import { hungry, satiety } from '../../src/utils/mood';
+import { formatDateFromTimestamp } from './utils/date';
+import { hungry, satiety } from './utils/mood';
 
 const app = express();
 
