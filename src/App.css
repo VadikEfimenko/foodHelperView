@@ -37,7 +37,6 @@ body {
   font-weight: 100;
   border: none;
   letter-spacing: 1px;
-  margin-top: 24px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -46,13 +45,32 @@ body {
 }
 
 .estimateDescription {
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: self-start;
   padding: 18px;
   border: 1px solid #c6007f;
   border-radius: 40px;
+}
+
+.previousButton {
+  border: 2px solid #c6007f;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.controlWrapper {
+  margin-top: 24px;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 

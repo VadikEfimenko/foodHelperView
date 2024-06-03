@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import './style.css';
 import classNames from "classnames";
+import { getDateFromTimesTemp } from '../../utils/date';
 
 export function DatePage({ onClick, value }) {
     const [days, setDays] = useState([]);
@@ -23,7 +24,7 @@ export function DatePage({ onClick, value }) {
             value: tomorrow.toISOString(),
             text: '',
         }])
-    }, [])
+    }, []);
 
     return (
         <div className="dateWrapper">
@@ -33,7 +34,7 @@ export function DatePage({ onClick, value }) {
                 {days.map((item) =>
                     <div key={`item_${item.value}`}>
                         <button
-                            className={classNames('dateButton', item.value === value ? ' dateSelected' : '')}
+                            className={classNames('dateButton', getDateFromTimesTemp(item.value) === getDateFromTimesTemp(value) ? ' dateSelected' : '')}
                             onClick={() => onClick(item.value)}
                         >
                             {item.day}

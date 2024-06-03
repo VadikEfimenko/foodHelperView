@@ -8,6 +8,7 @@ import { SuccessPage } from './components/SuccessPage';
 import { FoodIntakePage } from './components/FoodIntakePage';
 import { DatePage } from './components/DatePage';
 import { FoodPage } from './components/FoodPage';
+import BackArrow from './assets/previous.svg?react';
 
 export enum ScreenSteps {
     Success = 'success',
@@ -78,6 +79,12 @@ function App() {
     const nextStep = useCallback(() => {
         const currentIndex = procedure.indexOf(step);
         setStep(procedure[currentIndex + 1]);
+    }, [step]);
+
+    const previousStep = useCallback(() => {
+        const previousStep =  procedure[procedure.indexOf(step) - 1];
+
+        setStep(previousStep);
     }, [step]);
 
     const onSendData = useCallback(async () => {
@@ -186,6 +193,7 @@ function App() {
                                             text: value,
                                         });
                                     }}
+                                    value={foodLog.text}
                                 />
                             </div>
                         );
@@ -210,14 +218,22 @@ function App() {
             {/*    <button onClick={onSendData}>Отправить</button>*/}
             {/*)}*/}
 
-            {(step !== ScreenSteps.EstimateSatiety && step !== ScreenSteps.Success) && (
-                <button
-                    className="primaryButton"
-                    onClick={nextStep}
-                >
-                    Далее
-                </button>
-            )}
+            <div className="controlWrapper">
+                {(step !== ScreenSteps.Date && step !== ScreenSteps.Success)  && (
+                    <button className="previousButton" onClick={previousStep}>
+                        <BackArrow />
+                    </button>
+                )}
+
+                {(step !== ScreenSteps.EstimateSatiety && step !== ScreenSteps.Success) && (
+                    <button
+                        className="primaryButton"
+                        onClick={nextStep}
+                    >
+                        Далее
+                    </button>
+                )}
+            </div>
 
             {/*{(step === ScreenSteps.EstimateSatiety || step === ScreenSteps.EstimateHungry) && (*/}
             {/*    <div className='estimateDescription'>*/}
