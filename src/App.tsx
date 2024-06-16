@@ -1,5 +1,5 @@
 import './App.css';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTelegram } from './hooks/useTelegram';
 import { MoodSelectionPage } from './components/MoodSelectionPage';
 import React from 'react';
@@ -29,6 +29,7 @@ interface IResult {
 }
 
 function App() {
+    const [image, setImage] = useState({ preview: '', data: '' })
     const [foodLog, setFoodLog] = useState({
         text: '',
         foodIntake: '',
@@ -50,6 +51,21 @@ function App() {
         [ScreenSteps.EstimateHungry]: ['Ни голоден, ни сыт', 'Слегка голоден', 'Голоден', 'Очень голоден', 'Умираю от голода'],
         [ScreenSteps.EstimateSatiety]: ['Ни голоден, ни сыт', 'не наелся', 'наелся. чувствую себя комфортно', 'слегка переел', 'объелся'],
     };
+
+    const isDisabledButton = useMemo(() => {
+        switch (step) {
+            case ScreenSteps.Date:
+                return !foodLog.date;
+            case ScreenSteps.EstimateHungry:
+                return !foodLog.hungryScale;
+            case ScreenSteps.FoodIntake:
+                return !foodLog.foodIntake;
+            case ScreenSteps.FoodForm:
+                return !foodLog.text;
+            default:
+                return true;
+        }
+    }, [step, foodLog]);
 
     useEffect(() => {
         setFoodLog({
@@ -123,7 +139,7 @@ function App() {
         tg.MainButton.setParams({
             text: 'Записать!'
         })
-    }, [])
+    }, []);
 
     return (
         <div className="App">
@@ -229,6 +245,7 @@ function App() {
                     <button
                         className="primaryButton"
                         onClick={nextStep}
+                        disabled={isDisabledButton}
                     >
                         Далее
                     </button>

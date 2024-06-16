@@ -40,6 +40,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+.primaryButton:disabled {
+  background: #ffaee1;
+}
+
 .container:nth-child(n+1) {
   margin-top: 24px;
 }
