@@ -1,4 +1,3 @@
-import { BaseScene } from 'telegraf/typings/scenes';
 import { Markup, Scenes } from 'telegraf';
 import { message } from 'telegraf/filters';
 
@@ -17,6 +16,17 @@ foodScene.enter(async (ctx) => {
         Markup.button.callback('Отлично!', 'setmenu'),
     ]));
 });
+
+// foodScene.on(message('photo'), async (ctx) => {
+//     const imageId = ctx.message.photo.pop()?.file_id || '';
+//
+//     const link = await ctx.telegram.getFileLink(imageId);
+//     console.log('logo', link);
+// });
+//
+// foodScene.on(message('text'), async (ctx) => {
+//     console.log('logo', ctx.message);
+// });
 
 foodScene.action("setmenu", ctx =>
     // sets Web App as the menu button for current chat

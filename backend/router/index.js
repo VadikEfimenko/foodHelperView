@@ -4,6 +4,7 @@ const userController = require('../controllers/user-controller');
 const mealtimeController = require('../controllers/mealtime-controller');
 const { body } = require('express-validator');
 const authMiddleware = require('../middlewares/auth-middleware');
+const uploadImage = require('../configs/multer-config.js');
 
 const router = new Router();
 
@@ -20,7 +21,7 @@ router.post(
     doctorController.registration,
 );
 router.post('/refresh', doctorController.refresh);
-router.post('/recordMealTime', mealtimeController.record);
+router.post('/recordMealTime', uploadImage, mealtimeController.record);
 router.post('/getAllUsers', authMiddleware, userController.getAllUsers);
 router.post('/getUserById', authMiddleware, userController.getUserById);
 router.get('/refresh', doctorController.refresh);

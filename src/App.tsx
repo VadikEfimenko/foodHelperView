@@ -29,7 +29,7 @@ interface IResult {
 }
 
 function App() {
-    const [image, setImage] = useState({ preview: '', data: '' })
+    const [image, setImage] = useState('')
     const [foodLog, setFoodLog] = useState({
         text: '',
         foodIntake: '',
@@ -104,17 +104,20 @@ function App() {
     }, [step]);
 
     const onSendData = useCallback(async () => {
+        let formData = new FormData();
+
         const userBody = JSON.stringify({ userId: user?.id ?? '114856211', queryId, ...foodLog });
+
+        formData.append('file', image);
+        formData.append('json', userBody);
 
         console.log('LOGS queryId: ', queryId);
 
         let result = await fetch(
-            'https://efimenko.tech/api/recordMealTime', {
+            // 'https://efimenko.tech/api/recordMealTime', {
+            'http://localhost:3002/api/recordMealTime', {
                 method: "POST",
-                body: userBody,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                body: formData,
         });
 
         const status: IResult = await result.json();
@@ -126,10 +129,11 @@ function App() {
         setTimeout(() => {
             onClose();
         }, 2000);
-    }, [foodLog]);
+    }, [foodLog, image]);
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData);
+
         return () => {
             tg.offEvent('mainButtonClicked', onSendData);
         }
@@ -209,6 +213,8 @@ function App() {
                                             text: value,
                                         });
                                     }}
+                                    image={image}
+                                    setImage={setImage}
                                     value={foodLog.text}
                                 />
                             </div>
@@ -230,9 +236,9 @@ function App() {
                 }
             })()}
 
-            {/*{step === ScreenSteps.EstimateSatiety && (*/}
-            {/*    <button onClick={onSendData}>Отправить</button>*/}
-            {/*)}*/}
+            {step === ScreenSteps.EstimateSatiety && (
+                <button onClick={onSendData}>Отправить</button>
+            )}
 
             <div className="controlWrapper">
                 {(step !== ScreenSteps.Date && step !== ScreenSteps.Success)  && (

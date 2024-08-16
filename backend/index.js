@@ -12,14 +12,17 @@ const app = express();
 const PORT = process.env.PORT || 3002;
 let server;
 
-app.use(express.json());
+app.use(express.json({
+    limit: '5mb'
+}));
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: ['https://efimenko.tech', 'https://doctor.efimenko.tech'],
+    origin: ['https://efimenko.tech', 'https://doctor.efimenko.tech', 'http://localhost:5173'],
 }));
 app.use('/api', router);
 app.use(errorMiddleware);
+app.use(express.static('./public'));
 
 const start = async () => {
     try {
@@ -27,8 +30,8 @@ const start = async () => {
             // useNewUrlParser: true,
             // useUnifiedTopology: true,
             dbName: 'foodHelper',
-            user: 'root',
-            pass: 'example',
+            // user: 'root',
+            // pass: 'example',
         });
 
         server = app.listen(PORT, () => {

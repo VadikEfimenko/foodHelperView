@@ -8,11 +8,10 @@
 }
 
 .recordInput {
-    margin-top: 18px;
     font-family: "Circe", sans-serif;
     font-size: 16px;
     color: #4a4a4a;
-    width: 92%;
+    width: 300px;
     height: 120px;
     padding: 8px 24px;
     border: solid 1px #d2d2d2;
@@ -39,4 +38,30 @@
 .recordInput:focus::placeholder {
     transform: scale(1);
     transform-origin: top left;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+
+}
+
+.inputWrapper {
+    margin-top: 18px;
+    display: flex;
+    column-gap: 8px;
+}
+
+.imageLoaded {
+    border-color: forestgreen;
 }
